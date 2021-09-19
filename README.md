@@ -1,4 +1,5 @@
-# BI_2021_Python
+![BI_2021_Python ](./BI_logo.jpg)
+
 ##Introduction
 A python repository for practical course in © Bioinformatics Institute by Valeriia Ladyhina
 
