@@ -1,4 +1,4 @@
-![BI_2021_Python ](D:/Institute Bioinformatics/Python/BI_2021_Python/Python.png)
+> Python library for the practice in bioinformatics.
 
 ## Introduction
 A python repository for practical course in © Bioinformatics Institute by Valeriia Ladyhina
