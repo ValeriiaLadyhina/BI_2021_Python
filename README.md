@@ -1,34 +1,34 @@
-![BI_2021_Python ](./BI_logo.jpg)
+![BI_2021_Python ](./Python.png)
 
-##Introduction
+## Introduction
 A python repository for practical course in © Bioinformatics Institute by Valeriia Ladyhina
 
-##Main features
+## Main features
 To be written
 
-##Installing
+## Installing
 Information regarding installation.
 To be written
 
-##Usage example(s)
+## Usage example(s)
 To be written
 
-##Documentation
+## Documentation
 To be written
 
-##Authors and acknowledgements
-####Main contributor
+## Authors and acknowledgements
+#### Main contributor
 * Valeriia Ladyhina
 
-####Acknowledgements
+#### Acknowledgements
 
-##Changelog
+## Changelog
 License
-##License information.
+## License information.
 
-##How to cite
+## How to cite
 Citation information.
 To be written
 
-##Related research papers
+## Related research papers
 To be written 
