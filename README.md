@@ -4,7 +4,7 @@
 A python repository for practical course in © Bioinformatics Institute by Valeriia Ladyhina
 
 ## Main features
-To be written
+* NucleicAcid.analysis - transcribtion, reversing DNA sequence, finding complementary DNA
 
 ## Installing
 Information regarding installation.
