@@ -5,20 +5,19 @@ def test_for_sequence_normality(sequence):
 
 
 def transcribe():
-    print('Please write sequence for analysis')
-    sequence = str(input())
+    sequence = complement()
     if test_for_sequence_normality(sequence) == "Error":
-        return 'Error: Invalid Alphabet'
+        return print('Error: Invalid Alphabet')
     transcribed_sequence = []
     for i in sequence:
         if i == 'A':
-            transcribed_sequence.append('T')
-        elif i == 'a':
-            transcribed_sequence.append('t')
-        elif i == 'T':
             transcribed_sequence.append('U')
-        elif i == 't':
+        elif i == 'a':
             transcribed_sequence.append('u')
+        elif i == 'T':
+            transcribed_sequence.append('A')
+        elif i == 't':
+            transcribed_sequence.append('a')
         elif i == "G":
             transcribed_sequence.append('C')
         elif i == 'g':
@@ -27,23 +26,24 @@ def transcribe():
             transcribed_sequence.append('G')
         else:
             transcribed_sequence.append('g')
-    return ''.join(transcribed_sequence)
+    print(''.join(transcribed_sequence))
+    return
 
 
 def reverse():
     print('Please write sequence for analysis')
     sequence = str(input())
     if test_for_sequence_normality(sequence) == "Error":
-        return 'Error: Invalid Alphabet'
+        return print('Error: Invalid Alphabet')
     reversed_sequence = sequence[::-1]
-    return reversed_sequence
+    return print(reversed_sequence)
 
 
 def complement():
     print('Please write sequence for analysis')
     sequence = str(input())
     if test_for_sequence_normality(sequence) == "Error":
-        return 'Error: Invalid Alphabet'
+        return print('Error: Invalid Alphabet')
     complement_sequence = []
     for i in sequence:
         if i == 'A':
@@ -62,14 +62,15 @@ def complement():
             complement_sequence.append('G')
         else:
             complement_sequence.append('g')
-    return ''.join(complement_sequence)
+    print(''.join(complement_sequence))
+    return complement_sequence
 
 
 def reverse_complement():
     print('Please write sequence for analysis')
     sequence = str(input())
     if test_for_sequence_normality(sequence) == "Error":
-        return 'Error: Invalid Alphabet'
+        return print('Error: Invalid Alphabet')
     reversed_sequence = sequence[::-1]
     reversed_complement_sequence = []
     for i in reversed_sequence:
@@ -89,8 +90,26 @@ def reverse_complement():
             reversed_complement_sequence.append('G')
         else:
             reversed_complement_sequence.append('g')
-    return ''.join(reversed_complement_sequence)
+    return print(''.join(reversed_complement_sequence))
 
 
 def exit():
     print('Thank you for using our package. Good Luck!')
+
+
+if __name__ == "__main__":
+    while True:
+        command = input()
+        if command == 'transcribe':
+            transcribe()
+        elif command == 'complement':
+            complement()
+        elif command == 'reverse':
+            reverse()
+        elif command == 'reverse complement':
+            reverse_complement()
+        elif command == 'exit':
+            exit()
+            break
+
+
