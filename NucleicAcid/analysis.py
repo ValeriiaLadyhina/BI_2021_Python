@@ -5,7 +5,29 @@ def test_for_sequence_normality(sequence):
 
 
 def transcribe():
-    sequence = complement()
+    print('Please write sequence for analysis')
+    sequence = str(input())
+    if test_for_sequence_normality(sequence) == "Error":
+        return print('Error: Invalid Alphabet')
+    complement_sequence = []
+    for i in sequence:
+        if i == 'A':
+            complement_sequence.append('T')
+        elif i == 'a':
+            complement_sequence.append('t')
+        elif i == 'T':
+            complement_sequence.append('A')
+        elif i == 't':
+            complement_sequence.append('a')
+        elif i == "G":
+            complement_sequence.append('C')
+        elif i == 'g':
+            complement_sequence.append('c')
+        elif i == 'C':
+            complement_sequence.append('G')
+        else:
+            complement_sequence.append('g')
+    sequence = complement_sequence
     if test_for_sequence_normality(sequence) == "Error":
         return print('Error: Invalid Alphabet')
     transcribed_sequence = []
