@@ -10,44 +10,13 @@ def transcribe():
     if test_for_sequence_normality(sequence) == "Error":
         return print('Error: Invalid Alphabet')
     complement_sequence = []
-    for i in sequence:
-        if i == 'A':
-            complement_sequence.append('T')
-        elif i == 'a':
-            complement_sequence.append('t')
-        elif i == 'T':
-            complement_sequence.append('A')
-        elif i == 't':
-            complement_sequence.append('a')
-        elif i == "G":
-            complement_sequence.append('C')
-        elif i == 'g':
-            complement_sequence.append('c')
-        elif i == 'C':
-            complement_sequence.append('G')
-        else:
-            complement_sequence.append('g')
-    sequence = complement_sequence
-    if test_for_sequence_normality(sequence) == "Error":
-        return print('Error: Invalid Alphabet')
     transcribed_sequence = []
+    dna_to_complement_dna = {'A':'T', 'a':'t', 'T':'A','t':'a','C':'G','c':'g','G':'C','g':'c'}
+    dna_to_rna = {'A':'U', 'a':'u', 'T':'A','t':'a','C':'G','c':'g','G':'C','g':'c'}
     for i in sequence:
-        if i == 'A':
-            transcribed_sequence.append('U')
-        elif i == 'a':
-            transcribed_sequence.append('u')
-        elif i == 'T':
-            transcribed_sequence.append('A')
-        elif i == 't':
-            transcribed_sequence.append('a')
-        elif i == "G":
-            transcribed_sequence.append('C')
-        elif i == 'g':
-            transcribed_sequence.append('c')
-        elif i == 'C':
-            transcribed_sequence.append('G')
-        else:
-            transcribed_sequence.append('g')
+        complement_sequence.append(dna_to_complement_dna[i])
+    for i in complement_sequence:
+        transcribed_sequence.append(dna_to_rna[i])
     print(''.join(transcribed_sequence))
     return
 
@@ -67,25 +36,11 @@ def complement():
     if test_for_sequence_normality(sequence) == "Error":
         return print('Error: Invalid Alphabet')
     complement_sequence = []
+    dna_to_complement_dna = {'A': 'T', 'a': 't', 'T': 'A', 't': 'a', 'C': 'G', 'c': 'g', 'G': 'C', 'g': 'c'}
     for i in sequence:
-        if i == 'A':
-            complement_sequence.append('T')
-        elif i == 'a':
-            complement_sequence.append('t')
-        elif i == 'T':
-            complement_sequence.append('A')
-        elif i == 't':
-            complement_sequence.append('a')
-        elif i == "G":
-            complement_sequence.append('C')
-        elif i == 'g':
-            complement_sequence.append('c')
-        elif i == 'C':
-            complement_sequence.append('G')
-        else:
-            complement_sequence.append('g')
+        complement_sequence.append(dna_to_dna[i])
     print(''.join(complement_sequence))
-    return complement_sequence
+    return
 
 
 def reverse_complement():
@@ -94,24 +49,10 @@ def reverse_complement():
     if test_for_sequence_normality(sequence) == "Error":
         return print('Error: Invalid Alphabet')
     reversed_sequence = sequence[::-1]
+    dna_to_complement_dna = {'A':'T', 'a':'t', 'T':'A','t':'a','C':'G','c':'g','G':'C','g':'c'}
     reversed_complement_sequence = []
     for i in reversed_sequence:
-        if i == 'A':
-            reversed_complement_sequence.append('T')
-        elif i == 'a':
-            reversed_complement_sequence.append('t')
-        elif i == 'T':
-            reversed_complement_sequence.append('A')
-        elif i == 't':
-            reversed_complement_sequence.append('a')
-        elif i == "G":
-            reversed_complement_sequence.append('C')
-        elif i == 'g':
-            reversed_complement_sequence.append('c')
-        elif i == 'C':
-            reversed_complement_sequence.append('G')
-        else:
-            reversed_complement_sequence.append('g')
+        reversed_complement_sequence.append(dna_to_complement_dna[i])
     return print(''.join(reversed_complement_sequence))
 
 
