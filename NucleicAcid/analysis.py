@@ -4,6 +4,12 @@ def test_for_sequence_normality(sequence):
             return 'Error'
 
 
+def test_for_sequence_normality2(sequence):
+    for i in sequence:
+        if i not in 'ATCGatcgUu':
+            return 'Error'
+
+
 def transcribe():
     print('Please write sequence for analysis')
     sequence = str(input())
@@ -24,7 +30,7 @@ def transcribe():
 def reverse():
     print('Please write sequence for analysis')
     sequence = str(input())
-    if test_for_sequence_normality(sequence) == "Error":
+    if test_for_sequence_normality2(sequence) == "Error":
         return print('Error: Invalid Alphabet')
     reversed_sequence = sequence[::-1]
     return print(reversed_sequence)
