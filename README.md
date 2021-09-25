@@ -5,10 +5,10 @@ A python repository for practical course in © Bioinformatics Institute by Valer
 
 ## Main features
 * NucleicAcid.analysis
-    ** transcribe - transcribtion of DNA
-    ** reverse - reversing DNA or RNA sequence
-    ** reverse complement - finding complement sequence of reversed DNA
-    ** complement - finding complement DNA sequence
+    * transcribe - transcribtion of DNA
+    * reverse - reversing DNA or RNA sequence
+    * reverse complement - finding complement sequence of reversed DNA
+    * complement - finding complement DNA sequence
 
 ## Installing
 Information regarding installation.
