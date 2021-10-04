@@ -11,10 +11,6 @@ def test_for_sequence_normality2(sequence):
 
 
 def transcribe():
-    '''
-
-    :return:
-    '''
     print('Please write sequence for analysis')
     sequence = input()
     if test_for_sequence_normality(sequence) == "Error":
@@ -28,7 +24,6 @@ def transcribe():
     for i in complement_sequence:
         transcribed_sequence.append(dna_to_rna[i])
     print(''.join(transcribed_sequence))
-
 
 
 def reverse():
@@ -52,7 +47,6 @@ def complement():
     print(''.join(complement_sequence))
 
 
-
 def reverse_complement():
     print('Please write sequence for analysis')
     sequence = input()
@@ -65,9 +59,6 @@ def reverse_complement():
         reversed_complement_sequence.append(dna_to_complement_dna[i])
     print(''.join(reversed_complement_sequence))
 
-
-def exit():
-    print('Thank you for using our package. Good Luck!')
 
 command = input("Enter command: ")
 
@@ -83,6 +74,5 @@ if __name__ == "__main__":
         elif command == 'reverse complement':
             reverse_complement()
         elif command == 'exit':
+            print('Thank you for using out tool. Good luck!')
             exit()
-            break
-
