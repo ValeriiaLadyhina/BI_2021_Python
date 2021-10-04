@@ -1,4 +1,4 @@
-def test_for_sequence_normality(sequence):
+def test_for_sequence_normality1(sequence):
     for i in sequence:
         if i not in 'ATCGatcg':
             return 'Error'
@@ -11,8 +11,12 @@ def test_for_sequence_normality2(sequence):
 
 
 def transcribe():
+    '''
+
+    :return:
+    '''
     print('Please write sequence for analysis')
-    sequence = str(input())
+    sequence = input()
     if test_for_sequence_normality(sequence) == "Error":
         return print('Error: Invalid Alphabet')
     complement_sequence = []
@@ -24,21 +28,21 @@ def transcribe():
     for i in complement_sequence:
         transcribed_sequence.append(dna_to_rna[i])
     print(''.join(transcribed_sequence))
-    return
+
 
 
 def reverse():
     print('Please write sequence for analysis')
-    sequence = str(input())
+    sequence = input()
     if test_for_sequence_normality2(sequence) == "Error":
         return print('Error: Invalid Alphabet')
     reversed_sequence = sequence[::-1]
-    return print(reversed_sequence)
+    print(reversed_sequence)
 
 
 def complement():
     print('Please write sequence for analysis')
-    sequence = str(input())
+    sequence = input()
     if test_for_sequence_normality(sequence) == "Error":
         return print('Error: Invalid Alphabet')
     complement_sequence = []
@@ -46,12 +50,12 @@ def complement():
     for i in sequence:
         complement_sequence.append(dna_to_complement_dna[i])
     print(''.join(complement_sequence))
-    return
+
 
 
 def reverse_complement():
     print('Please write sequence for analysis')
-    sequence = str(input())
+    sequence = input()
     if test_for_sequence_normality(sequence) == "Error":
         return print('Error: Invalid Alphabet')
     reversed_sequence = sequence[::-1]
@@ -59,12 +63,13 @@ def reverse_complement():
     reversed_complement_sequence = []
     for i in reversed_sequence:
         reversed_complement_sequence.append(dna_to_complement_dna[i])
-    return print(''.join(reversed_complement_sequence))
+    print(''.join(reversed_complement_sequence))
 
 
 def exit():
     print('Thank you for using our package. Good Luck!')
 
+command = input("Enter command: ")
 
 if __name__ == "__main__":
     while True:
