@@ -1,6 +1,6 @@
 def main():
     welcoming_message = '''
-    Welcome to converter of units. 
+    Welcome to converter of units.
     By using it you can convert mass and density.
     Short guideline
     \n:
