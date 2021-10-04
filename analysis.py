@@ -13,7 +13,7 @@ def test_for_sequence_normality2(sequence):
 def transcribe():
     print('Please write sequence for analysis')
     sequence = input()
-    if test_for_sequence_normality(sequence) == "Error":
+    if test_for_sequence_normality1(sequence) == "Error":
         return print('Error: Invalid Alphabet')
     complement_sequence = []
     transcribed_sequence = []
@@ -38,7 +38,7 @@ def reverse():
 def complement():
     print('Please write sequence for analysis')
     sequence = input()
-    if test_for_sequence_normality(sequence) == "Error":
+    if test_for_sequence_normality1(sequence) == "Error":
         return print('Error: Invalid Alphabet')
     complement_sequence = []
     dna_to_complement_dna = {'A': 'T', 'a': 't', 'T': 'A', 't': 'a', 'C': 'G', 'c': 'g', 'G': 'C', 'g': 'c'}
@@ -50,7 +50,7 @@ def complement():
 def reverse_complement():
     print('Please write sequence for analysis')
     sequence = input()
-    if test_for_sequence_normality(sequence) == "Error":
+    if test_for_sequence_normality1(sequence) == "Error":
         return print('Error: Invalid Alphabet')
     reversed_sequence = sequence[::-1]
     dna_to_complement_dna = {'A': 'T', 'a': 't', 'T': 'A', 't': 'a', 'C': 'G', 'c': 'g', 'G': 'C', 'g': 'c'}
@@ -61,6 +61,7 @@ def reverse_complement():
 
 
 command = input("Enter command: ")
+
 
 if __name__ == "__main__":
     while True:
