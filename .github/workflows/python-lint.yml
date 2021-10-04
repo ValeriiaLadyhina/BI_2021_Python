@@ -2,9 +2,9 @@ name: PEP-8
 
 on:
   push:
-    branches: [ main ,ht1]
+    branches: [ main, ht1, second-homework, second-homework-conflict]
   pull_request:
-    branches: [ main ,ht1]
+    branches: [main, ht1, second-homework, second-homework-conflict]
 
 jobs:
   build:
