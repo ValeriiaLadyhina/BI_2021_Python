@@ -1,3 +1,8 @@
+SI_mass = {'mg': 0.001, 'g': 1, 'kg': 1000, 't': 1000000}
+British_American_mass = {'gr': 64.79891, 'dr': 1.7718451953125,
+                         'oz': 28.349523125, 'lb': 453.59237,
+                         'st': 6350.29318, 'short ton': 907185,
+                         'long ton': 1016000}
 def main():
     welcoming_message = '''
     Welcome to converter of units.
@@ -32,33 +37,28 @@ def main():
 
 
 def mass_converter():
-    SI_mass = {'mg': 0.001, 'g': 1, 'kg': 1000, 't': 1000000}
-    British_American_mass = {'gr': 64.79891, 'dr': 1.7718451953125,
-                             'oz': 28.349523125, 'lb': 453.59237,
-                             'st': 6350.29318, 'short ton': 907185,
-                             'long ton': 1016000}
     print('You can convert mass from/to:\n'
           '\n'
           '     * SI units: mg <-> g <-> kg <-> t\n'
           '\n'
           '     * British/American units: gr <-> dr <->oz <-\n '
           '     -> lb <-> short ton <-> long ton <-> st\n')
-    print('Please write unit type to be converted:')
-    unit_type_from = input()
+    unit_type_from = input('Please write unit type to be converted:')
     while unit_type_from not in SI_mass.keys() and unit_type_from not in British_American_mass.keys():
-        print('Please check your spelling and try again:')
+        print('Please check your spelling and try again:\n')
         unit_type_from = input()
-    print('Please write value of interest:')
-    value = input()
-    while not value.isdigit():
-        print('Input has to be a number. Try again:')
-        value = input()
-    value = int(value)
-    print('Please fill in unit type to which would like to convert:')
-    unit_type_to = input()
+    value = input('Please write value of interest:\n')
+    error = 'TRUE'
+    while error == 'TRUE':
+        try:
+            value = float(value)
+            error = 'FALSE'
+        except ValueError:
+            error = 'TRUE'
+            value = input('Input has to be a number. Try again:\n')
+    unit_type_to = input('Please fill in unit type to which would like to convert:\n')
     while unit_type_to not in SI_mass.keys() and unit_type_to not in British_American_mass.keys():
-        print('Please check your spelling and try again:')
-        unit_type_to = input()
+        unit_type_to = input('Please check your spelling and try again:\n')
     if unit_type_from in SI_mass.keys():
         g_value = value * SI_mass[unit_type_from]
     else:
@@ -69,7 +69,7 @@ def mass_converter():
         result_value = g_value / British_American_mass[unit_type_to]
 
     print(value, unit_type_from, '=', result_value, unit_type_to)
-    print('Try other values to convert. '
+    print('Try other values to convert.\n'
           'Print needed type of measurements. Choose:\n'
           '     * mass\n'
           '\n'
