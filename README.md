@@ -10,6 +10,11 @@ A python repository for practical course in © Bioinformatics Institute by Valer
     * reverse complement - finding complement sequence of reversed DNA
     * complement - finding complement DNA sequence
 
+* Unit converter
+    * mass 
+      * supported types: SI - mg, g, kg, t; British/American - gr, dr, oz, lb, st, short ton, long ton.
+    * density - in developement   
+
 ## Installing
 Information regarding installation.
 To be written
