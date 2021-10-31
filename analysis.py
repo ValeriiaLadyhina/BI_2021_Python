@@ -18,11 +18,7 @@ def main():
           '    * reverse\n'
           '    * complement\n'
           '    * reverse complement\n'
-          'Functions reverse, complement and reverse complement you can apply for both DNA and RNA\n'
-          'To exit the tool you can use one of the next words:\n'
-          '    * exit\n'
-          '    * end analysis\n'
-          '    * finish')
+          'Functions reverse, complement and reverse complement you can apply for both DNA and RNA\n')
     while True:
         perform_analysis = input('Do you want to start analysis? Please write Y/N.\n')
         if perform_analysis in ['yes', 'Yes', 'Y', 'YES', 'y']:
@@ -63,7 +59,7 @@ def main():
                     reverse_complement(sequence, complement_set)
         else:
             print('Thank you for using our tool. Good luck!')
-            exit
+            break
 
 
 def test_for_correct_dna(sequence):
