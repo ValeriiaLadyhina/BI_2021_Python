@@ -15,7 +15,7 @@ To start the tool in your terminal please type the absolute path to the tool scr
 *__python fastq_filtrator.py__*
 
 ## Example
-You can do a trial run of the tool on a data that is called *example.fastq*.
+You can do a trial run of the tool on a data that is called *example.fastq* and check the output in two output files *example_filtered_out_reads.fastq* and *example_filtered_reads.fastq*
 
 ## Functions that are presented in the tool:
 * fastq_filter - function performing filtration of the reads, parameters:
