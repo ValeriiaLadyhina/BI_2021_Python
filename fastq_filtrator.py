@@ -171,17 +171,15 @@ if __name__ == "__main__":
 
     import numpy
 
-    welcoming_message = '''
-    Welcome to FastQ Filtrator.\nYou can use this programme to perform quality assessment of you fastq files based on 
-    GC content, read length and quality to filter your raw Illumina sequencing data. It is a first version of the tool,
-     therefore I would ask you to be careful with your input of the name of file to be analyzed.\nThe programme takes 4
-      parameters\n: 
+    welcoming_message = '''Welcome to FastQ Filtrator.\nYou can use this programme to perform quality assessment of you 
+    fastq files based on GC content, read length and quality to filter your raw Illumina sequencing data. It is a first
+     version of the tool,therefore I would ask you to be careful with your input of the name of file to be analyzed.\n
+     The programme takes 4 parameters\n: 
         * GC Bounds is parameter describing GC content (default: 0, 100). 
         * Length Bounds defines frames for read length (default: 0, 2**32).
         * Quality Threshold (QT) - the minimal mean quality of the read based on phred33 scale (default: 0).
         * Save Filtered. By default settings programme will save only reads that passed quality control. If you want to
-          save also reads that didn't pass thresholds in a separate output file please change this parameter to True.
-    '''
+        save also reads that didn't pass thresholds in a separate output file please change this parameter to True.'''
     print(welcoming_message)
     input_fastq = input('Enter name of input fastq file including filename extension.You can enter either just name of '
                         'the file if it is located in the same folder as the script or print the absolute path '
