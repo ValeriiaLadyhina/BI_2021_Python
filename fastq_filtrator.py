@@ -25,7 +25,6 @@ def open_fastq_file(input_fastq):
         fastq_file = file.readlines()
     sequence_dictionary = {}
     sequence_dictionary_original = {}
-    print(len(fastq_file))
     for i in range(0, len(fastq_file)-1, 4):
         id_code = fastq_file[i].replace("\n", "")
         sequence = fastq_file[i+1].replace("\n", "")
