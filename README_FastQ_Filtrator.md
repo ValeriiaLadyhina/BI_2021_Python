@@ -57,6 +57,10 @@ You can do a trial run of the tool on a data that is called *example.fastq* and 
 
 * change_of_parameters - this function is used for personalisation of parameters such as gc, length and quality 
   threshold indexes and also choice of one or two output files to be created.
+  
+## Known bugs
+If you will fill in name of input file that doesn't exist or you will write limits for filters in wrong format programme will end and you will need to restart it. Therefore until this problem won't be fixed please be very careful with your inputs. Thank you for your understanding :)
+
 
 ## Authors and acknowledgements
 #### Main contributor
