@@ -38,13 +38,13 @@ def open_fastq_file(input_fastq):
 
 def quality_control(sequence_dictionary):
     length_of_reads = []
-    GC_values = []
+    gc_values = []
     quality_values = []
     for key in sequence_dictionary:
         sequence = sequence_dictionary[key][1]
-        GC_composition = ((sequence.count('G')+sequence.count('C'))/len(sequence))*100
-        GC_values.append(round(GC_composition, 1))
-        sequence_dictionary[key].append(round(GC_composition, 1))
+        gc_composition = ((sequence.count('G')+sequence.count('C'))/len(sequence))*100
+        gc_values.append(round(gc_composition, 1))
+        sequence_dictionary[key].append(round(gc_composition, 1))
         length_of_reads.append(len(sequence))
         sequence_dictionary[key].append(len(sequence))
         quality = []
@@ -54,7 +54,7 @@ def quality_control(sequence_dictionary):
 
         quality_values.append(numpy.mean(quality))
     print('Basic statistics on reads quality:\n')
-    print('* GC composition: min =', min(GC_values), ', max =', max(GC_values), ', average =', numpy.mean(GC_values))
+    print('* GC composition: min =', min(gc_values), ', max =', max(gc_values), ', average =', numpy.mean(gc_values))
     print('* Length of reads: min =', min(length_of_reads), ', max =', max(length_of_reads),
           ', average =', numpy.mean(length_of_reads))
     print('* Quality of reads: min =', min(quality_values), ', max =', max(quality_values),
@@ -117,60 +117,56 @@ def change_of_parameters(gc_bounds, length_bounds, quality_threshold,
                          save_filtered):
     answer = 'N'
     while answer == 'N':
-        parameters_to_change = input('1 - GC Bounds,\n2 - Length Bounds,\n3 - Quality Threshold,\n4 - '
-                                     'Create an output file for reads that did not pass quality control\n\n'
-                                     'Please enter the number of parameters you want to change:\n')
-        for i in parameters_to_change:
-            i = int(i)
-            while i not in [1, 2, 3, 4]:
-                parameters_to_change = input('You typed incorrect index. Please try again.\n\n'
+        parameters_to_change = int(input('1 - GC Bounds,\n2 - Length Bounds,\n3 - Quality Threshold,\n4 - '
+                                         'Create an output file for reads that did not pass quality control\n\n'
+                                         'Please enter the number of parameter you want to change:\n'))
+        while parameters_to_change not in [1, 2, 3, 4]:
+            parameters_to_change = int(input('You typed incorrect index. Please try again.\n\n'
                                              '1 - GC Bounds,\n2 - Length Bounds,\n3 - Quality Threshold,\n4 - '
                                              'Create an output file for reads that did not pass quality control\n\n'
-                                             'Please enter the number of parameters you want to change:\n')
-                for i in parameters_to_change:
-                    i = int(i)
-            if i == 1:
-                gc_bounds = [int(x) for x in input('Example 0 100 - print two numbers with delimiter - space\n\n'
-                                                   'Enter lower and upper bound for GC content in between 0 '
-                                                   'to 100.\n ').split()]
+                                             'Please enter the number of parameter you want to change:\n'))
+        if parameters_to_change == 1:
+            gc_bounds = [int(x) for x in input('Example 0 100 - print two numbers with delimiter - space\n\n'
+                                               'Enter lower and upper bound for GC content in between 0 '
+                                               'to 100.\n ').split()]
+            lower, upper = gc_bounds[0], gc_bounds[1]
+            while ((lower or upper) not in range(0, 100)) or upper < lower:
+                print(lower, upper)
+                gc_bounds = [int(x) for x in input('You put incorrect value. Please try again.\n'
+                                                   'Enter lower and upper bound for GC '
+                                                   'content in between 0 to 100 with delimiter space.\n').split()]
                 lower, upper = gc_bounds[0], gc_bounds[1]
-                while ((lower or upper) not in range(0, 100)) or upper < lower:
-                    print(lower, upper)
-                    gc_bounds = [int(x) for x in input('You put incorrect value. Please try again.\n'
-                                                       'Enter lower and upper bound for GC '
-                                                       'content in between 0 to 100 with delimiter space.\n').split()]
-                    lower, upper = gc_bounds[0], gc_bounds[1]
-            elif i == 2:
-                length_bounds = input('Enter lower and upper limit for length of reads divided by space.\n')
-                while ',' not in length_bounds or ' ' in length_bounds:
-                    length_bounds = input('Wrong format. Please repeat your input.\n Write lower boundary and upper '
-                                          'boundary with delimiter space\n')
+        elif parameters_to_change == 2:
+            length_bounds = input('Enter lower and upper limit for length of reads divided by space.\n')
+            while ',' not in length_bounds or ' ' in length_bounds:
+                length_bounds = input('Wrong format. Please repeat your input.\n Write lower boundary and upper '
+                                      'boundary with delimiter space\n')
+            length_bounds = length_bounds.split(',')
+            lower, upper = int(length_bounds[0]), int(length_bounds[1])
+            while ((lower or upper) not in range(0, 2**32)) or upper < lower:
+                length_bounds = input('Your input is outside supported values 0 - 4294967296. Please try again.'
+                                      'Enter lower and upper limit for length of reads.\n')
                 length_bounds = length_bounds.split(',')
                 lower, upper = int(length_bounds[0]), int(length_bounds[1])
-                while ((lower or upper) not in range(0, 2**32)) or upper < lower:
-                    length_bounds = input('Your input is outside supported values 0 - 4294967296. Please try again.'
-                                          'Enter lower and upper limit for length of reads.\n')
-                    length_bounds = length_bounds.split(',')
-                    lower, upper = int(length_bounds[0]), int(length_bounds[1])
-            elif i == 3:
-                quality_threshold = input('Enter minimal value of quality for read to be accepted. '
-                                          'The number has to be in'
-                                          'range from 0 to 40.\n')
-                while int(quality_threshold) not in range(0, 40):
-                    quality_threshold = input('You wrote incorrect value.Please try again.\n'
-                                              'Enter minimal value of quality for read to be accepted. '
-                                              'The number has to '
-                                              'be in range from 0 to 40.\n')
-            else:
-                save_filtered = input('Do you want to save both reads that passed filter and reads that did not in two '
-                                      'separate files? Then please print True, if you want to save only fastq file'
-                                      ' with '
-                                      'reads that passed filtering please type False:\n\nEnter you answer '
-                                      'True or False')
-            print('Please check if parameters are correct:\n'
-                  'GC Bounds (lower:', gc_bounds[0], 'upper:', gc_bounds[1], ')\n'
-                  'Length Bounds (lower:', length_bounds[0], 'upper:', length_bounds[1], ')\n, Quality Threshold = ',
-                  quality_threshold, '\nSave Filtered = ', save_filtered, '?\n\n')
+        elif parameters_to_change == 3:
+            quality_threshold = input('Enter minimal value of quality for read to be accepted. '
+                                      'The number has to be in'
+                                      'range from 0 to 40.\n')
+            while int(quality_threshold) not in range(0, 40):
+                quality_threshold = input('You wrote incorrect value.Please try again.\n'
+                                          'Enter minimal value of quality for read to be accepted. '
+                                          'The number has to '
+                                          'be in range from 0 to 40.\n')
+        else:
+            save_filtered = input('Do you want to save both reads that passed filter and reads that did not in two '
+                                  'separate files? Then please print True, if you want to save only fastq file'
+                                  ' with '
+                                  'reads that passed filtering please type False:\n\nEnter you answer '
+                                  'True or False')
+        print('Please check if parameters are correct:\n'
+              'GC Bounds (lower:', gc_bounds[0], 'upper:', gc_bounds[1], ')\n'
+              'Length Bounds (lower:', length_bounds[0], 'upper:', length_bounds[1], ')\n, Quality Threshold = ',
+              quality_threshold, '\nSave Filtered = ', save_filtered, '?\n\n')
         answer = input('Enter Y/N\n')
     return gc_bounds, length_bounds, quality_threshold, save_filtered
 
