@@ -50,20 +50,21 @@ def quality_control(sequence_dictionary):
         quality = []
         for i in sequence_dictionary[key][3]:
             quality.append(ord(i)-33)
-        sequence_dictionary[key].append(np.mean(quality))
-        quality_values.append(round(np.mean(quality), 1))
+        sequence_dictionary[key].append(numpy.mean(quality))
+
+        quality_values.append(numpy.mean(quality))
     print('Basic statistics on reads quality:\n')
-    print('* GC composition: min =', min(GC_values), ', max =', max(GC_values), ', average =', np.mean(GC_values))
+    print('* GC composition: min =', min(GC_values), ', max =', max(GC_values), ', average =', numpy.mean(GC_values))
     print('* Length of reads: min =', min(length_of_reads), ', max =', max(length_of_reads),
-          ', average =', np.mean(length_of_reads))
+          ', average =', numpy.mean(length_of_reads))
     print('* Quality of reads: min =', min(quality_values), ', max =', max(quality_values),
-          ', average =', np.mean(quality_values), '\n\n')
+          ', average =', numpy.mean(quality_values), '\n\n')
     return sequence_dictionary
 
 
 def gc_content_filter(sequence_dictionary, gc_bounds):
+    list_to_be_removed = []
     if gc_bounds != (0, 100):
-        list_to_be_removed = []
         for key in sequence_dictionary.keys():
             if sequence_dictionary[key][4] < gc_bounds[0] or sequence_dictionary[key][4] > gc_bounds[1]:
                 list_to_be_removed.append(key)
@@ -126,7 +127,8 @@ def change_of_parameters(gc_bounds, length_bounds, quality_threshold,
                                              '1 - GC Bounds,\n2 - Length Bounds,\n3 - Quality Threshold,\n4 - '
                                              'Create an output file for reads that did not pass quality control\n\n'
                                              'Please enter the number of parameters you want to change:\n')
-                i = int(i)
+                for i in parameters_to_change:
+                    i = int(i)
             if i == 1:
                 gc_bounds = [int(x) for x in input('Example 0 100 - print two numbers with delimiter - space\n\n'
                                                    'Enter lower and upper bound for GC content in between 0 '
@@ -174,7 +176,9 @@ def change_of_parameters(gc_bounds, length_bounds, quality_threshold,
 
 
 if __name__ == "__main__":
-    import numpy as np
+
+    import numpy
+
     welcoming_message = '''
     Welcome to FastQ Filtrator.
     You can use this programme to perform quality assessment of you fastq files based on GC content, read length 
@@ -187,6 +191,7 @@ if __name__ == "__main__":
         * Save Filtered. By default settings programme will save only reads that passed quality control. If you want to
           save also reads that didn't pass thresholds in a separate output file please change this parameter to True.
     '''
+
     print(welcoming_message)
     input_fastq = input('Enter name of input fastq file including filename extension.You can enter either just name of '
                         'the file if it is located in the same folder as the script or print the absolute path '
