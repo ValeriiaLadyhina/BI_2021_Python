@@ -171,9 +171,10 @@ if __name__ == "__main__":
 
     import numpy
 
-    welcoming_message = '''Welcome to FastQ Filtrator.\nYou can use this programme to perform quality assessment of you 
-    fastq files based on GC content, read length and quality to filter your raw Illumina sequencing data. It is a first
-     version of the tool,therefore I would ask you to be careful with your input of the name of file to be analyzed.\n
+    welcoming_message = '''Welcome to FastQ Filtrator.\nYou can use this programme to perform quality assessment of 
+    your fastq files based on GC content, read length and quality to filter your raw Illumina sequencing data. It is 
+    a first version of the tool,therefore I would ask you to be careful with your input of the name of file to be 
+    analyzed.\n
      The programme takes 4 parameters\n: 
         * GC Bounds is parameter describing GC content (default: 0, 100). 
         * Length Bounds defines frames for read length (default: 0, 2**32).
