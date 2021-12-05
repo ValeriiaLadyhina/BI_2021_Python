@@ -38,7 +38,7 @@ def func_chain(*args):
 def multiple_partial(*args, **kwargs):  # ???
     result = []
     for func in args:
-        def partial(func, /, *args, **kwargs):
+        def partial(func, *args, **kwargs):
             def newfunc(*fargs, **fkwargs):
                 newkwargs = {**kwargs, **fkwargs}
                 return func(*args, *fargs, **newkwargs)
