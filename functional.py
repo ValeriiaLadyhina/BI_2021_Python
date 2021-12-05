@@ -1,3 +1,6 @@
+import numpy as np
+
+
 def sequential_map(*args):
     result = func_chain(*args[:-1])(args[-1])
     if type(result[0]) == float or type(result[0]) == np.float64:
