@@ -31,14 +31,22 @@ def func_chain(*args):
         for func in args:
             container = func(container)
         return container
+
     return lambda x: resulting_func(x)
 
 
-def multiple_partial(*args, **kwargs):
+def multiple_partial(*args, **kwargs):  # ???
     result = []
-    for i in args:
-        result_new = []
-        for j in kwargs:
-            result_new.append(list(map(i, j)))
-        result.append(result_new)
+    for func in args:
+        def partial(func, /, *args, **kwargs):
+            def newfunc(*fargs, **fkwargs):
+                newkwargs = {**kwargs, **fkwargs}
+                return func(*args, *fargs, **newkwargs)
+
+            newfunc.func = func
+            newfunc.args = args
+            newfunc.kwargs = kwargs
+            return newfunc
+
+        result.append(partial(func, *args, **kwargs))
     return result
