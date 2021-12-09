@@ -32,6 +32,33 @@ def np_vs_rd():
 
 
 # TASK 2
+def is_sorted(list):
+    for i in range(len(list) - 1):
+        if list[i] > list[i+1]:
+            return False
+    return True
+
+
+def monkey_sort(list):
+    while is_sorted(list) is False:
+        rd.shuffle(list)
+    return list
+
+
+def time_monkey_sort():
+    results = dict()
+    for number in range(0, 100):
+        result_time = []
+        for i in range(10):
+            list_to_sort = np.random.uniform(0, 500, size=number)
+            tic = time.time()
+            monkey_sort(list_to_sort)
+            toc = time.time()
+            result_time.append(toc-tic)
+        results[number] = result_time
+    labels, data = results.keys(), results.values()
+    plt.boxplot(data)
+    plt.xticks(range(1, len(labels) + 1), labels)
 
 
 # TASK 3
