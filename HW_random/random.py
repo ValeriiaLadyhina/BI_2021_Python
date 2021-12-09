@@ -49,7 +49,7 @@ def time_monkey_sort():
     results = dict()
     for number in range(0, 11):
         result_time = []
-        for i in range(5):
+        for _ in range(5):
             list_to_sort = np.random.normal(size=number)
             tic = time.time()
             monkey_sort(list_to_sort)
@@ -62,12 +62,12 @@ def time_monkey_sort():
 
 
 # TASK 3
-def randwalk (n=1000):
+def randwalk(n=1000):
     x = 0
     y = 0
     step_x = [x]
     step_y = [y]
-    for i in range(1, n+1):
+    for _ in range(1, n+1):
         move = rd.randint(0, 3)
         if move == 0:
             x += np.random.uniform(0, 10)
