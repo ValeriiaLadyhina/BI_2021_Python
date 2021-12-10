@@ -32,7 +32,7 @@ def func_chain(*args):
             container = func(container)
         return container
 
-    return lambda x: resulting_func(x)
+    return resulting_func
 
 
 def multiple_partial(*args, **kwargs):  # ???
