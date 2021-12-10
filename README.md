@@ -1,44 +1,19 @@
-> Python library for the practice in bioinformatics.
+## Numpy challenge
+- Python practice on numpy arrays
 
-## Introduction
-A python repository for practical course in © Bioinformatics Institute by Valeriia Ladyhina
 
-## Main features
-* NucleicAcid.analysis
-    * transcribe - transcribtion of DNA
-    * reverse - reversing DNA or RNA sequence
-    * reverse complement - finding complement sequence of reversed DNA
-    * complement - finding complement DNA sequence
+## Features
+* matrix_multiplication - multiplication of 2 matrices
+* multiplication_check - check if it is possible to multiply your list of matrices
+* multiply_matrices - multiplication of list of matrices
+* compute_2d_distance - counting euclidean distance between two points (two arrays of shape (1,2))
+* compute_multidimensional_distance - counting euclidean distance between two vectors (two arrays of shape (1,x))
+* compute_pair_distances - counting the matrix of pairwise distances in 2d array
 
-* Unit converter
-    * mass 
-      * supported types: SI - mg, g, kg, t; British/American - gr, dr, oz, lb, st, short ton, long ton.
-    * density - in developement   
-
-## Installing
-Information regarding installation.
-To be written
-
-## Usage example(s)
-To be written
-
-## Documentation
-To be written
 
 ## Authors and acknowledgements
 #### Main contributor
 * Valeriia Ladyhina
 
-#### Acknowledgements
 
-## Changelog
-License
-## License information.
-
-## How to cite
-Citation information.
-To be written
-
-## Related research papers
-To be written 
 
