@@ -100,7 +100,7 @@ def saving(sequence_dictionary, sequence_dictionary_original, output_file_prefix
             file1.writelines([sequence_dictionary[key][0], sequence_dictionary[key][1],
                              sequence_dictionary[key][2], sequence_dictionary[key][3]])
     file1.close()
-    if save_filtered == 'True':
+    if save_filtered == True:
         with open((output_file_prefix + "_filtered_out_reads.fastq"), 'w') as file2:
             for i in list_to_be_removed:
                 print(i)
