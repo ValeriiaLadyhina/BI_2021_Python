@@ -1,5 +1,5 @@
-def fastq_filter(gc_bounds, length_bounds, quality_threshold,
-                 save_filtered, input_fastq, output_file_prefix):
+def fastq_filter(input_fastq, output_file_prefix, gc_bounds=(0, 100), length_bounds=(0, 2**32), quality_threshold=0,
+                 save_filtered=False):
     sequence_dictionary, sequence_dictionary_original = open_fastq_file(input_fastq)
     sequence_dictionary = quality_control(sequence_dictionary)
     parameters = input('Do you want to change any parameters? Please type Y/N.\n By default:\n\n'
