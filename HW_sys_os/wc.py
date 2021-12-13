@@ -49,4 +49,3 @@ if __name__ == '__main__':
         print(characters, args.file)
     else:
         print(lines, words, characters, args.file)
-
