@@ -19,5 +19,3 @@ if __name__ == '__main__':
         for line in file:
             result = pattern.match(line)
             print(result)
-
-
