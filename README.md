@@ -14,10 +14,13 @@ In this repository you will find utilits that are similar by their functional to
 * wc.py
 
 ## cat.py 
-# Functions: 
+
+### Functions: 
 * open and print the whole file
 * can be used in pipeline with other utilits for example _wc.py_
 
+### Usage
+'r'
    
 
 ## Usage example(s)
