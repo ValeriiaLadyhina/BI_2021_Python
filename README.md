@@ -20,7 +20,7 @@ In this repository you will find utilits that are similar by their functional to
 * can be used in pipeline with other utilits for example _wc.py_
 
 ### Usage
-`python cat.py [FILE] ` '\n'
+`python cat.py [FILE] ` \
 FILE - input file \n
  -h, --help  show help message \n 
  
