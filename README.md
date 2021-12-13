@@ -1,23 +1,24 @@
-> Python library for the practice in bioinformatics.
+> Python library for the practice in bioinformatics. Homework modules os and sys
 
 ## Introduction
-A python repository for practical course in © Bioinformatics Institute by Valeriia Ladyhina
+A python repository for practical course in © Bioinformatics Institute by Valeriia Ladyhina.
+In this repository you will find utilits that are similar by their functional to Linux utilits.
 
 ## Main features
-* NucleicAcid.analysis
-    * transcribe - transcribtion of DNA
-    * reverse - reversing DNA or RNA sequence
-    * reverse complement - finding complement sequence of reversed DNA
-    * complement - finding complement DNA sequence
+* cat.py
+* ls.py
+* mkdir.py
+* rm.py
+* sort.py
+* tail.py
+* wc.py
 
-* Unit converter
-    * mass 
-      * supported types: SI - mg, g, kg, t; British/American - gr, dr, oz, lb, st, short ton, long ton.
-    * density - in developement   
+## cat.py 
+# Functions: 
+* open and print the whole file
+* can be used in pipeline with other utilits for example _wc.py_
 
-## Installing
-Information regarding installation.
-To be written
+   
 
 ## Usage example(s)
 To be written
