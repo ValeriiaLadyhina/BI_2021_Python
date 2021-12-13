@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 
+
 def installation():
     path = str(os.get_exec_path()[0])
     print(path)
