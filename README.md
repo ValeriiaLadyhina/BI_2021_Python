@@ -20,29 +20,81 @@ In this repository you will find utilits that are similar by their functional to
 * can be used in pipeline with other utilits for example _wc.py_
 
 ### Usage
-'r'
-   
+`python cat.py [FILE] `
+FILE - input file
+ -h, --help  show help message
+ 
+## ls.py 
 
-## Usage example(s)
-To be written
+### Functions: 
+* print files that are located in the current directory
 
-## Documentation
-To be written
+### Usage
+`python ls.py [DIR] `
+DIR - path to the directory you want to check
+ -h, --help  show help message
+ -a --all    count all files including hidden ones  
+ 
+## mkdir.py 
+
+### Functions: 
+* create directory
+
+### Usage
+`python mkdir.py [DIR] `
+DIR - name of a directory to be created
+ -h, --help  show help message
+ -p --parents  no error if the directory already existed
+ 
+## rm.py 
+
+### Functions: 
+* remove directory or file
+
+### Usage
+`python rm.py [PATH] `
+PATH - path to a file or a directory that has to be removed
+ -h, --help  show help message
+ -r  recursively remove non-empty directory
+ 
+## sort.py 
+
+### Functions: 
+* sort lines in file
+* can be used in pipeline after cat
+
+### Usage
+`python sort.py [FILE] `
+FILE - file that you want to sort
+ -h, --help  show help message
+ 
+## tail.py 
+
+### Functions: 
+* print last 10 lines of the file/files
+
+### Usage
+`python tail.py [FILE...] `
+FILE - file that you want to print end of
+ -h, --help  show help message
+ -n will allow to prine one by one last 10 lines of multiple files
+ 
+## wc.py 
+
+### Functions: 
+* words, lines or characters count in file
+
+### Usage
+`python wc.py [FILE...] `
+FILE - file that you want to print end of
+ -h, --help  show help message
+ -w, --words words count
+ -l, --lines kines count
+ -c, --characyers characters count
+
 
 ## Authors and acknowledgements
 #### Main contributor
 * Valeriia Ladyhina
 
-#### Acknowledgements
-
-## Changelog
-License
-## License information.
-
-## How to cite
-Citation information.
-To be written
-
-## Related research papers
-To be written 
-
+## Utilits __grep.py__ and __install.py__ are in the process of development.
