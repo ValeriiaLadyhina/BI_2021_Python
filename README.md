@@ -22,7 +22,7 @@ In this repository you will find utilits that are similar by their functional to
 ### Usage
 `python cat.py [FILE] ` \
 FILE - input file \n
- -h, --help  show help message \n 
+ -h, --help  show help message \
  
 ## ls.py 
 
@@ -30,10 +30,10 @@ FILE - input file \n
 * print files that are located in the current directory
 
 ### Usage
-`python ls.py [DIR] ` \n
-DIR - path to the directory you want to check \n
- -h, --help  show help message \n
- -a --all    count all files including hidden ones  \n
+`python ls.py [DIR] ` \
+DIR - path to the directory you want to check \
+ -h, --help  show help message \
+ -a --all    count all files including hidden ones  \
  
 ## mkdir.py 
 
@@ -41,10 +41,10 @@ DIR - path to the directory you want to check \n
 * create directory
 
 ### Usage
-`python mkdir.py [DIR] `
-DIR - name of a directory to be created
- -h, --help  show help message
- -p --parents  no error if the directory already existed
+`python mkdir.py [DIR] ` \
+DIR - name of a directory to be created \
+ -h, --help  show help message \
+ -p --parents  no error if the directory already existed \
  
 ## rm.py 
 
@@ -52,10 +52,10 @@ DIR - name of a directory to be created
 * remove directory or file
 
 ### Usage
-`python rm.py [PATH] `
-PATH - path to a file or a directory that has to be removed
- -h, --help  show help message
- -r  recursively remove non-empty directory
+`python rm.py [PATH] ` \
+PATH - path to a file or a directory that has to be removed \
+ -h, --help  show help message \ 
+ -r  recursively remove non-empty directory \
  
 ## sort.py 
 
@@ -64,9 +64,9 @@ PATH - path to a file or a directory that has to be removed
 * can be used in pipeline after cat
 
 ### Usage
-`python sort.py [FILE] `
-FILE - file that you want to sort
- -h, --help  show help message
+`python sort.py [FILE] ` \
+FILE - file that you want to sort \
+ -h, --help  show help message \
  
 ## tail.py 
 
@@ -75,22 +75,23 @@ FILE - file that you want to sort
 
 ### Usage
 `python tail.py [FILE...] `
-FILE - file that you want to print end of
- -h, --help  show help message
- -n will allow to prine one by one last 10 lines of multiple files
+FILE - file that you want to print end of \
+ -h, --help  show help message \
+ -n will allow to prine one by one last 10 lines of multiple files \
  
 ## wc.py 
 
 ### Functions: 
 * words, lines or characters count in file
+* can be combined in pipeline with _cat.py_
 
 ### Usage
-`python wc.py [FILE...] `
-FILE - file that you want to print end of
- -h, --help  show help message
- -w, --words words count
- -l, --lines kines count
- -c, --characyers characters count
+`python wc.py [FILE...] ` \
+FILE - file that you want to print end of \
+ -h, --help  show help message \
+ -w, --words words count \
+ -l, --lines kines count \
+ -c, --characyers characters count \
 
 
 ## Authors and acknowledgements
