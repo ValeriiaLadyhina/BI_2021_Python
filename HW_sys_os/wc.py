@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import re
+import sys
 
 
 def counter(args, file):
@@ -37,9 +38,12 @@ if __name__ == '__main__':
     parser.add_argument('-l', '--lines', action='store_true', help='line count')
     parser.add_argument('-w', '--words', action='store_true', help='word count')
     parser.add_argument('-c', '--characters', action='store_true', help='character count')
-    parser.add_argument('file')
+    parser.add_argument('file', metavar='FILE', nargs='*', help='input file', default='-')
     args = parser.parse_args()
-    file = open(args.file).readlines()
+    if args.file == '-':
+        file = sys.stdin
+    else:
+        file = open(args.file).readlines()
     lines, words, characters = counter(args, file)
     if args.lines:
         print(lines, args.file)
