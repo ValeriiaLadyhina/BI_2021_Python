@@ -5,7 +5,7 @@ import argparse
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-n', nargs='?',
-                        help='if tou want to show last 10 lines of few documents', default='-')
+                        help='if you want to show last 10 lines of few documents', default='-')
     parser.add_argument('file',  help='file/files to process to show', nargs='+', default='-')
     args = parser.parse_args()
     n = args.n
