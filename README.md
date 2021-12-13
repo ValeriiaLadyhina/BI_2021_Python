@@ -20,9 +20,9 @@ In this repository you will find utilits that are similar by their functional to
 * can be used in pipeline with other utilits for example _wc.py_
 
 ### Usage
-`python cat.py [FILE] `
-FILE - input file
- -h, --help  show help message
+`python cat.py [FILE] ` \n
+FILE - input file \n
+ -h, --help  show help message \n 
  
 ## ls.py 
 
@@ -30,10 +30,10 @@ FILE - input file
 * print files that are located in the current directory
 
 ### Usage
-`python ls.py [DIR] `
-DIR - path to the directory you want to check
- -h, --help  show help message
- -a --all    count all files including hidden ones  
+`python ls.py [DIR] ` \n
+DIR - path to the directory you want to check \n
+ -h, --help  show help message \n
+ -a --all    count all files including hidden ones  \n
  
 ## mkdir.py 
 
