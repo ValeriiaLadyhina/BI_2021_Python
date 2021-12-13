@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import argparse
 import os
 
@@ -23,4 +23,3 @@ if __name__ == '__main__':
     args = parser.parse_args()
     dir_name = args.dir_name
     file_search(args)
-

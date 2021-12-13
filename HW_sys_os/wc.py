@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-import sys
+#!/usr/bin/env python3
 import argparse
 import re
 
@@ -50,4 +49,4 @@ if __name__ == '__main__':
         print(characters, args.file)
     else:
         print(lines, words, characters, args.file)
-    sys.exit()
+
