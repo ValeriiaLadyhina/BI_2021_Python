@@ -9,4 +9,3 @@ if __name__ == '__main__':
     file = open(args.file).read()
     print(file)
     sys.stdout(file)
-
