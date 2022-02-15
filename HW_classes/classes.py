@@ -25,11 +25,16 @@ class PositiveSet(set):
 
     def __init__(self, set_):
         self.set_ = set_
-        positive_set = set()
+        self.positive_set = set()
         for ele in self.set_:
             if ele > 0:
-                positive_set.add(self.set_)
-        self.positive_set = positive_set
+                self.positive_set.add(ele)
+
+    def add(self, *elements):
+        for ele in elements:
+            if ele > 0:
+                self.positive_set.add(ele)
+        return set(self.positive_set)
 
     def add(self):
         pass
