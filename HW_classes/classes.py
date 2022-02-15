@@ -2,6 +2,7 @@ from Bio.Seq import Seq
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+
 class Bacteria():
 
     def __init__(self):
@@ -39,18 +40,18 @@ class FastaStatistics():
     def __init__(self, path):
         self.path = path
 
-    def sequnces_number(self):
+    def sequences_number(self):
         return len([1 for line in open(self.path) if line.startswith(">")])
 
     def hist_len_of_sequences(self):
-        self.length_list = []
+        length_list = []
         with open(self.path) as fasta:
             for line in fasta:
                 if not line.startswith(">"):
-                    self.length_list[-1] += len(line)
+                    length_list[-1] += len(line)
                 else:
-                    self.length_list.append(0)
-        ax = sns.histplot(self.length_list)
+                    length_list.append(0)
+        ax = sns.histplot(length_list)
         ax.set(xlabel='sequence length distribution', ylabel='number')
         plt.show()
 
@@ -69,3 +70,29 @@ class FastaStatistics():
                     if self.gc_composition[-1] != 0:
                         self.gc_composition = self.gc_composition / self.length_list * 100
         return self.gc_composition
+
+    def hist_four_mer(self):
+        self.reads = []
+        four_mers = {}
+        for record in SeqIO.parse(self.path, 'fasta'):
+            self.reads.append(record.seq)
+        for read in self.reads:
+            for i in range(len(read) - 4):
+                four_mer = str(read[i:i + 4])
+                if four_mer not in four_mers.keys():
+                    four_mers[four_mer] = 1
+                else:
+                    four_mers[four_mer] += 1
+
+        plt.figure(figsize=(140, 20))
+        plt.bar(four_mers.keys(), four_mers.values())
+        plt.xlabel('Four-mers', fontsize=5)
+        plt.ylabel('Number of four-mers')
+        plt.title('Four-mers distribution', fontsize=14)
+
+    def __str__(self):
+        return self.path
+
+    def output(self):
+        return self.GC_composition(), self.sequnces_number()
+
