@@ -78,9 +78,6 @@ class PositiveSet(set):
                 self.positive_set.add(ele)
         return set(self.positive_set)
 
-    def add(self):
-        pass
-
 
 class FastaStatistics():
 
@@ -142,4 +139,3 @@ class FastaStatistics():
 
     def output(self):
         return self.GC_composition(), self.sequnces_number()
-
