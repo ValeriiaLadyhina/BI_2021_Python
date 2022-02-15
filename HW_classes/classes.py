@@ -1,12 +1,54 @@
 from Bio.Seq import Seq
+from Bio import SeqIO
 import seaborn as sns
 import matplotlib.pyplot as plt
+import random
 
 
 class Bacteria():
 
-    def __init__(self):
-        pass
+    def __init__(self, name, antibiotic, AMR=0, number=100000):
+        self.bacteria_name = name
+        self.bacteria_number = number
+        self.AMR = AMR
+        self.antibiotic = antibiotic
+        self.antibitotic_possible_for_treatment = {'E.coli': 'amoxicillin', 'Salmonella': 'metronidazole'}
+        self.chance_to_develope_AMR = {'amoxicillin': 15, 'metronidazole': 5, 'colistin': 25}
+        self.treatment = {'amoxicillin': 6, 'metronidazole': 12, 'colistin': 24}
+        self.speed_of_growth = {'E.coli': 1.3, 'Salmonella': 1.13}
+
+    def development_of_AMR(self):
+        chance = random.randint(0, self.chance_to_develope_AMR[self.antibiotic])
+        self.AMR = (self.bacteria_number - self.AMR) * chance + self.AMR
+        return self.AMR
+
+    def infection_treatment(self):
+        if self.antibiotic != self.antibitotic_possible_for_treatment[self.bacteria_name]:
+            return 'Choose another treatment, as this one is not suitable'
+        else:
+            self.bacteria_number = (self.bacteria_number - self.AMR) * 0.5 + self.AMR
+            return self.bacteria_number
+
+    def bacterial_grows(self):
+        self.bacteria_number = self.bacteria_number * self.speed_of_growth[self.bacteria_name]
+        return self.bacteria_number
+
+    def model(self):
+        treatment = 1
+        self.infection_treatment()
+        self.development_of_AMR()
+        for i in range(168):  # hour in one week of treatment
+            self.bacterial_grows()
+            if i % self.treatment[self.antibiotic] == 0:
+                treatment += 1
+                self.infection_treatment()
+                self.development_of_AMR()
+        if self.bacteria_number / self.AMR >= 0.8:
+            print('We have to treat with last line antibiotics')
+        elif 0.4 < self.bacteria_number / self.AMR < 0.8:
+            print('We have to choose other antibiotic')
+        else:
+            print('Patient is going to recover soon')
 
 
 class RNA():
