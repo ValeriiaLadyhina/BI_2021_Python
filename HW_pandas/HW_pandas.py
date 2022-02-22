@@ -26,7 +26,7 @@ wine_set = wine_set.set_index('Id')
 scaler = StandardScaler()
 scaler.fit(wine_set)
 wine_set = pd.DataFrame(scaler.transform(wine_set))
-wine_set.hist(figsize(40, 50))
+wine_set.hist(figsize=(40, 50))
 sns.pairplot(wine_set.iloc[:, 1:], kind='kde')
 
 
@@ -47,8 +47,8 @@ alignment = read_bed6('Data/alignment.bed')
 
 rrna_ano.attributes = rrna_ano.attributes.str.extract(r'([1-6]{1,2}S)')
 rrna_ano_RNA_type = rrna_ano.groupby(['chromosome']).agg({'attributes': 'value_counts'})
-rrna_ano_RNA_type.unstack().plot(kind='bar', figsize=(30,10))
-rrna_ano_RNA_type.unstack().plot(kind='bar', figsize=(30,10), stacked=True)
+rrna_ano_RNA_type.unstack().plot(kind='bar', figsize=(30, 10))
+rrna_ano_RNA_type.unstack().plot(kind='bar', figsize=(30, 10), stacked=True)
 
 
 def intersect_full(gff_file, alingment):
@@ -56,4 +56,5 @@ def intersect_full(gff_file, alingment):
     full_intersect = intersect[(intersect.start_x >= intersect.start_y+1) & (intersect.end_y+1 >= intersect.end_x)]
     return intersect, full_intersect
 
-intersect_rrna, full_intersect_rrna = intersect_full(rrna_ano,alignment)
+
+intersect_rrna, full_intersect_rrna = intersect_full(rrna_ano, alignment)
