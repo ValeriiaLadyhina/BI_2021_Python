@@ -39,11 +39,13 @@ query = '''CREATE TABLE SLU_programmes(
                             length INTREGER,
                             question TEXT)
                             '''
+
 connection.execute(query)
 insertion_query = '''INSERT INTO 
                      SLU_programmes (name,language, level, length, question)
                      VALUES (?, ?, ?, ?, ?)
                      '''
+
 connection.executemany(insertion_query, SLU_programmes)
 connection.commit()
 connection.close()
