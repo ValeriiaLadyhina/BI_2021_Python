@@ -13,6 +13,7 @@ Generator that reads fasta files
 def fasta_generator(path_to_file):
     with open(path_to_file, 'r') as file:
         seq_id = ''
+        end_seq_id = ''
         for line in file:
             if line.startswith('>'):
                 if seq_id == '':
