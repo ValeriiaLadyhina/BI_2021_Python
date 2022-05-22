@@ -54,7 +54,7 @@ class FastaRandom:
             if change_type == 'insertion':
                 seq = self._insertion(seq)
             else:
-                seq = self._AA_change(seq)
+                seq = self._aa_change(seq)
         return seq
 
     def _deletion(self, seq):
@@ -69,7 +69,7 @@ class FastaRandom:
             insertion_seq += random.choice(AA)
         return seq[:start] + insertion_seq + seq[start + 1:]
 
-    def _AA_change(self, seq):
+    def _aa_change(self, seq):
         start = random.randint(0, len(seq))
         if len(seq) - start > 20:
             for i in range(random.randint(0, 20)):
@@ -87,23 +87,27 @@ class FastaRandom:
             end_seq_id, end_sequence = next(self.__generator)
         return end_seq_id, end_sequence
 
-    '''
-    Task 3
-    Generator iter_append
-    '''
 
-    def iter_append(iterable, item):
-        yield from iterable
-        yield item
+'''
+Task 3
+Generator iter_append
+'''
 
-    '''
-    Task 4
-    Function to unpack nested lists
-    '''
 
-    def flatten_nested_list(lst):
-        for i in lst:
-            if isinstance(i, list):
-                yield from flatten_nested_list(i)
-            else:
-                yield i
+def iter_append(iterable, item):
+    yield from iterable
+    yield item
+
+
+'''
+Task 4
+Function to unpack nested lists
+'''
+
+
+def flatten_nested_list(lst):
+    for i in lst:
+        if isinstance(i, list):
+            yield from flatten_nested_list(i)
+        else:
+            yield i
