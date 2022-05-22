@@ -41,7 +41,7 @@ query = '''CREATE TABLE SLU_programmes(
                             '''
 
 connection.execute(query)
-insertion_query = '''INSERT INTO 
+insertion_query = '''INSERT INTO
                      SLU_programmes (name,language, level, length, question)
                      VALUES (?, ?, ?, ?, ?)
                      '''
